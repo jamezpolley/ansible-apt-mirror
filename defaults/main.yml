@@ -1,0 +1,24 @@
+---
+apt_mirror_base: /var/spool/apt-mirror
+repos:
+  - basepath: http://mirror.internode.on.net/pub/ubuntu/ubuntu/
+    types:
+      deb:
+        vivid: &sections main restricted universe multiverse
+        vivid-updates: *sections
+        vivid-backports: *sections
+      deb-i386:
+        trusty: *sections
+        trusty-updates: *sections
+        trusty-backports: *sections
+  - basepath: http://security.ubuntu.com/ubuntu
+    types:
+      deb:
+        vivid-security: *sections
+      deb-i386:
+        trusty-security: *sections
+  - basepath: http://dl.google.com/linux/chrome/deb/
+    types:
+      deb:
+        stable: main
+

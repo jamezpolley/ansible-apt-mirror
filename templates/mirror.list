@@ -1,0 +1,25 @@
+############# config ##################
+#
+set base_path    {{ apt_mirror_base }}
+#
+# set mirror_path  $base_path/mirror
+# set skel_path    $base_path/skel
+# set var_path     $base_path/var
+# set cleanscript $var_path/clean.sh
+# set defaultarch  <running host architecture>
+# set postmirror_script $var_path/postmirror.sh
+# set run_postmirror 0
+set nthreads     20
+set _tilde 0
+#
+############# end config ##############
+
+{% for repo in repos %}
+{% for type, releases in repo.types.iteritems() -%}
+{% for dist, sections in releases.iteritems() -%}
+{{ type }} {{ repo.basepath }} {{ dist }} {{ sections }}
+{% endfor -%}
+{% endfor -%}
+clean {{ repo.basepath }}
+{% endfor -%}
+
