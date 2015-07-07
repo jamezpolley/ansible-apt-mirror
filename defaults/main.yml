@@ -21,4 +21,8 @@ repos:
     types:
       deb:
         stable: main
+  - basepath: http://www.readynas.com/packages
+    types:
+      deb:
+        4.2.27/: ""
 
